@@ -33,8 +33,8 @@ const App = () => {
             classes: 'success'
           })
         })
-        .catch(() => setMessage({
-          message: `Information of ${updatePerson.name} has already been removed from server`,
+        .catch((err) => setMessage({
+          message: err.response.data.error,
           classes: 'error'
         }))
 
@@ -61,8 +61,8 @@ const App = () => {
         classes: 'success'
       })
     })
-    .catch(() => setMessage({
-      message: `${newPerson.name} add failed`,
+    .catch((err) => setMessage({
+      message: err.response.data.error,
       classes: 'error'
     }))
   }
